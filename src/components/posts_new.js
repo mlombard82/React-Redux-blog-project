@@ -12,6 +12,9 @@ class PostsNew extends Component {
         <div className="form-group">
           <label>Title</label>
           <input type="text" className="form-control" {...title} />
+          <div className="text-help">
+            {title.touched ? title.error : ''}
+          </div>
         </div>
 
        <div className="form-group">
@@ -24,13 +27,24 @@ class PostsNew extends Component {
           <textarea className="form-control" {...content} />
         </div>
 
-        <button type="submit" cla ssName="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     );
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if(!values.title) {
+    errors.title = 'Enter a username';
+  }
+
+  return errors;
+}
+
 export default reduxForm({
   form: 'PostsNewForm',
-  fields: ['title', 'categories', 'content']
+  fields: ['title', 'categories', 'content'],
+  validate
 }, null, { createPost })(PostsNew); 
