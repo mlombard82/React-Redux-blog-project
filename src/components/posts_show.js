@@ -9,8 +9,23 @@ class PostsShow extends Component {
   }
 
   render(){
-    return <div>Show post {this.props.params.id} </div>
+    const { post } = this.props; // ES6 syntax sugar. identical to const post = this.props.post;
+
+   if(!post){
+     return <div>Loading...</div>;
+   }
+    return (
+      <div>
+        <h3>{post.title}</h3>
+        <h6>Categories: {post.categories}</h6>
+        <p>{post.content}</p>
+      </div>
+    );
   } 
 }
 
-export default connect(null, { fetchPost })(PostsShow); //null because we are not mapping any state to props
+function mapStateToProps(state){
+  return { post: state.posts.post };
+}
+
+export default connect(mapStateToProps, { fetchPost })(PostsShow);
