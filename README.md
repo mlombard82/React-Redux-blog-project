@@ -1,3 +1,11 @@
+
+CRUD functionality
+RESTful API
+react-router
+Validation with redux-form
+
+
+
 Usage
 ------
 
