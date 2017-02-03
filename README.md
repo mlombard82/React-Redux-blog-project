@@ -1,10 +1,13 @@
 
-CRUD functionality
-RESTful API
-react-router
-Validation with redux-form
+Features
+------
 
+- CRUD functionality
+- RESTful API
 
+Technologies
+--------
+- React, Redux, react-router
 
 Usage
 ------
